@@ -6,7 +6,8 @@ type Record struct {
 	fields []*Field
 }
 
-// NewRecord constructs and returns a new Record
+// NewRecord constructs and returns a new Record. The Fields given should be
+// in the order wanted in the final record.
 func NewRecord(name string, f ...*Field) *Record {
 	return &Record{name: name, fields: f}
 }

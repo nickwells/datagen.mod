@@ -71,8 +71,6 @@ func NewWStringGen(seqOrRand seqOrRandType,
 	}
 
 	if seqOrRand == Random {
-		// TODO: The generated Rand value is not thread safe. It should be
-		//       locked if it is expected to be used concurrently
 		sg.r = NewRand()
 		sg.idx = sg.r.Intn(sg.totWeight)
 	}

@@ -75,7 +75,7 @@ func GenSetValSetter[T any](vs ValSetter[T]) GenOptFunc[T] {
 	}
 }
 
-// NewGen constructs and returns a new any generator
+// NewGen constructs and returns a new generator of the supplied generic type
 func NewGen[T any](opts ...GenOptFunc[T]) *Gen[T] {
 	s := &Gen[T]{
 		sm:        dfltGenImpl[T]{},

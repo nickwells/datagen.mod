@@ -50,7 +50,8 @@ type TimeValSetGaussianInterval struct {
 	// units is the Duration units in which the mean and sd are expressed
 	units time.Duration
 
-	// forceGT0 is a flag which if set to true will force any duration <= 0 to 1
+	// forceGT0 is a flag which if set to true will force any duration to be
+	// greater than zero
 	forceGT0 bool
 }
 
@@ -155,12 +156,12 @@ func NewTimeGen(opts ...TimeGenOptFunc) *TimeGen {
 	return tg
 }
 
-// Generate generates a time string
+// Generate generates a formatted time string
 func (tg TimeGen) Generate() string {
 	return tg.value.Format(tg.layout)
 }
 
-// Value generates a time
+// Value returns the current value as a time
 func (tg TimeGen) Value() time.Time {
 	return tg.value
 }
