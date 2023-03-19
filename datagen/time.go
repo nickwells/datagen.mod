@@ -74,11 +74,17 @@ func NewTimeValSetGaussianInterval(mean, sd float64,
 // interval may be negative unless the forceGT0 flag is set. The interval
 // will always be in whole multiples of the units.
 func (tvs TimeValSetGaussianInterval) SetVal(t *time.Time) {
-	ival64 := rand.NormFloat64()*tvs.sd + tvs.mean
-	ival := time.Duration(math.Floor(ival64)) * tvs.units
-	if ival <= 0 && tvs.forceGT0 {
-		ival = tvs.units
+	f := rand.NormFloat64()
+	if f <= 0 && tvs.forceGT0 {
+		if f == 0 {
+			f = 1.0
+		} else {
+			f *= -1.0
+		}
 	}
+	ival64 := f*tvs.sd + tvs.mean
+	ival := time.Duration(math.Floor(ival64)) * tvs.units
+
 	*t = t.Add(ival)
 }
 
