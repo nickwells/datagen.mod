@@ -14,12 +14,12 @@ func (vs ComputedValSetter[T]) SetVal(v *T) {
 
 // NewComputedValSetter builds and returns a ComputedValSetter of the given
 // type.
-func NewComputedValSetter[T any](a func(*T, ...TypedGenerator[T]),
+func NewComputedValSetter[T any](aggregator func(*T, ...TypedGenerator[T]),
 	val0 TypedGenerator[T], vals ...TypedGenerator[T],
 ) *ComputedValSetter[T] {
 	vs := &ComputedValSetter[T]{
 		values:     make([]TypedGenerator[T], 0, len(vals)+1),
-		aggregator: a,
+		aggregator: aggregator,
 	}
 	vs.values = append(vs.values, val0)
 	vs.values = append(vs.values, vals...)
