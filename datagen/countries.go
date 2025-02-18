@@ -59,7 +59,7 @@ var Countries = map[string]Country{
 		},
 		ccy: Currency{
 			name:     "yuan",
-			symbol:   "\u00a5",
+			symbol:   "¥",
 			symPlace: CcySymBefore,
 			code:     "CNY",
 			decimals: 2,
@@ -75,7 +75,7 @@ var Countries = map[string]Country{
 		},
 		ccy: Currency{
 			name:     "yen",
-			symbol:   "\u00a5",
+			symbol:   "¥",
 			symPlace: CcySymBefore,
 			code:     "JPY",
 			decimals: 0,
@@ -190,6 +190,22 @@ var Countries = map[string]Country{
 			symbol:   "$",
 			symPlace: CcySymBefore,
 			code:     "CAD",
+			decimals: 2,
+		},
+	},
+	"RU": {
+		name: "Russian Federation",
+		code: "RU",
+		nf: NumFmt{
+			decimalSep:  ",",
+			digitGrpSep: " ",
+			sepCount:    []int{3},
+		},
+		ccy: Currency{
+			name:     "ruble",
+			symbol:   "₽",
+			symPlace: CcySymAfter,
+			code:     "RUR",
 			decimals: 2,
 		},
 	},
