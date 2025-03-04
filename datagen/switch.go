@@ -22,6 +22,7 @@ func NewSwitchGen[T any](dfltVal TypedGenerator[T], cases ...*Case[T]) *SwitchGe
 // Next moves the values on to their next value
 func (sg *SwitchGen[T]) Next() {
 	sg.dfltVal.Next()
+
 	for _, c := range sg.cases {
 		c.v.Next()
 	}

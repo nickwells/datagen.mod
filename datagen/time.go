@@ -68,6 +68,7 @@ func NewTimeValSetGaussianInterval(mean, sd float64,
 		units:    units,
 		forceGT0: forceGT0,
 	}
+
 	return tvs
 }
 
@@ -83,6 +84,7 @@ func (tvs TimeValSetGaussianInterval) SetVal(t *time.Time) {
 			f *= -1.0
 		}
 	}
+
 	ival64 := f*tvs.sd + tvs.mean
 	ival := time.Duration(math.Floor(ival64)) * tvs.units
 
@@ -153,6 +155,7 @@ func NewTimeGen(opts ...TimeGenOptFunc) *TimeGen {
 			panic(err)
 		}
 	}
+
 	return tg
 }
 

@@ -23,6 +23,7 @@ func (r Record) Generate() []string {
 	for _, f := range r.fields {
 		rval = append(rval, f.g.Generate())
 	}
+
 	return rval
 }
 
@@ -32,6 +33,7 @@ func (r Record) GenerateTitles() []string {
 	for _, f := range r.fields {
 		rval = append(rval, f.Name())
 	}
+
 	return rval
 }
 
@@ -42,6 +44,7 @@ func (r Record) GenerateAsMap() map[string]string {
 	for _, f := range r.fields {
 		rval[f.Name()] = f.g.Generate()
 	}
+
 	return rval
 }
 

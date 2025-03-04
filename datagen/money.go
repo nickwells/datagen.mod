@@ -107,6 +107,7 @@ func stripDecimals(v, factor int64, decimals int, sep string) (string, int64) {
 	if decimals == 0 {
 		return "", v
 	}
+
 	return fmt.Sprintf("%s%0*d", sep, decimals, v%factor), v / factor
 }
 
@@ -137,7 +138,7 @@ func (ccy Currency) MoneyMkStrFunc(nf *NumFmt) func(int64) string {
 		var decimalPart string
 		decimalPart, v = stripDecimals(v, decFactor,
 			ccy.decimals, nf.decimalSep)
-		nonDecimalPart := uFunc(uint64(v))
+		nonDecimalPart := uFunc(uint64(v)) //nolint:gosec
 
 		if isNegative && nf.negFmt == NegFmtMinus {
 			s += "-"

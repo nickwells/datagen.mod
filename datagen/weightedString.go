@@ -40,11 +40,13 @@ func (sg *WStringGen) addWeightedString(ws WeightedString) {
 			"The weight (%d) for string %q is <= 0",
 			ws.Weight, ws.Str))
 	}
+
 	sg.totWeight += ws.Weight
-	sg.strings = append(sg.strings, sgWeightedString{
-		WeightedString: ws,
-		cumWeight:      sg.totWeight,
-	})
+	sg.strings = append(sg.strings,
+		sgWeightedString{
+			WeightedString: ws,
+			cumWeight:      sg.totWeight,
+		})
 }
 
 // NewWStringGen creates a new WStringGen object and returns it. It will panic
@@ -99,6 +101,7 @@ func (sg WStringGen) Generate() string {
 			return ws.Str
 		}
 	}
+
 	return ""
 }
 

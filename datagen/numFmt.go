@@ -68,6 +68,7 @@ func NumFmtSetZeroVal(s string) NumFmtOptFunc {
 	return func(nf *NumFmt) error {
 		nf.zeroVal = s
 		nf.useZeroVal = true
+
 		return nil
 	}
 }
@@ -139,6 +140,7 @@ func makeFactor[T constraints.Float | constraints.Integer](v int) T {
 	for ; v > 0; v-- {
 		f *= 10
 	}
+
 	return f
 }
 
@@ -149,6 +151,7 @@ func SepFactors[T constraints.Float | constraints.Integer](sc []int) []T {
 	for i, d := range sc {
 		factors[i] = makeFactor[T](d)
 	}
+
 	return factors
 }
 
@@ -179,12 +182,14 @@ func UnsignedMkStrFunc[T constraints.Unsigned](nf NumFmt) func(T) string {
 						fmt.Sprintf(
 							"%s%0*d", nf.digitGrpSep, nf.sepCount[i], vRem))
 				}
+
 				v = vNew
 
 				if i < len(factors)-1 {
 					i++
 				}
 			}
+
 			if len(parts) == 0 {
 				parts = append(parts, "0")
 			}

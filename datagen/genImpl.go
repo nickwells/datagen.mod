@@ -49,7 +49,9 @@ func GenSetStringMaker[T any](sm StringMaker[T]) GenOptFunc[T] {
 		if sm == nil {
 			return errors.New("a nil string maker has been supplied")
 		}
+
 		s.sm = sm
+
 		return nil
 	}
 }
@@ -70,7 +72,9 @@ func GenSetValSetter[T any](vs ValSetter[T]) GenOptFunc[T] {
 		if vs == nil {
 			return errors.New("a nil value setter has been supplied")
 		}
+
 		s.valSetter = vs
+
 		return nil
 	}
 }
@@ -87,5 +91,6 @@ func NewGen[T any](opts ...GenOptFunc[T]) *Gen[T] {
 			panic(err)
 		}
 	}
+
 	return s
 }

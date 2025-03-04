@@ -17,8 +17,10 @@ func (v seqOrRandType) IsValid() bool {
 	if v < Random {
 		return false
 	}
+
 	if v > Sequential {
 		return false
 	}
+
 	return true
 }

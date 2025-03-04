@@ -50,6 +50,7 @@ func (p passerAnd) Passes() bool {
 			return false
 		}
 	}
+
 	return true
 }
 
@@ -81,6 +82,7 @@ func (p passerOr) Passes() bool {
 			return true
 		}
 	}
+
 	return false
 }
 

@@ -1,3 +1,4 @@
+//nolint:mnd
 package datagen
 
 // Country records details about a country. These include the name, the ISO

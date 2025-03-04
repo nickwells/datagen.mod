@@ -43,13 +43,13 @@ type NormValSetter[T constraints.Integer | constraints.Float] struct {
 
 // NewNormValSetter creates and returns a NormValSetter
 func NewNormValSetter[T constraints.Integer | constraints.Float](
-	min, max T,
+	minimum, maximum T,
 	mean, sd float64,
 ) *NormValSetter[T] {
 	return &NormValSetter[T]{
 		r:    NewRand(),
-		min:  min,
-		max:  max,
+		min:  minimum,
+		max:  maximum,
 		mean: mean,
 		sd:   sd,
 	}
