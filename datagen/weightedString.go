@@ -2,7 +2,7 @@ package datagen
 
 import (
 	"fmt"
-	"math/rand"
+	"math/rand/v2"
 )
 
 // WeightedString records a string and an associated weight. When there are
@@ -63,16 +63,18 @@ func NewWStringGen(seqOrRand seqOrRandType,
 	}
 
 	sg.addWeightedString(ws)
+
 	for _, ws := range strs {
 		sg.addWeightedString(ws)
 	}
+
 	if sg.totWeight == 0 {
 		return sg
 	}
 
 	if seqOrRand == Random {
 		sg.r = NewRand()
-		sg.idx = sg.r.Intn(sg.totWeight)
+		sg.idx = sg.r.IntN(sg.totWeight)
 	}
 
 	return sg
@@ -81,7 +83,7 @@ func NewWStringGen(seqOrRand seqOrRandType,
 // Next moves the string to it's next value
 func (sg *WStringGen) Next() {
 	if sg.seqOrRand == Random {
-		sg.idx = sg.r.Intn(sg.totWeight)
+		sg.idx = sg.r.IntN(sg.totWeight)
 	} else {
 		sg.idx++
 		if sg.idx >= sg.totWeight {

@@ -1,7 +1,7 @@
 package datagen
 
 import (
-	"math/rand"
+	"math/rand/v2"
 
 	"golang.org/x/exp/constraints"
 )

@@ -2,7 +2,7 @@ package datagen
 
 import (
 	"math"
-	"math/rand"
+	"math/rand/v2"
 	"time"
 )
 
@@ -75,7 +75,7 @@ func NewTimeValSetGaussianInterval(mean, sd float64,
 // interval may be negative unless the forceGT0 flag is set. The interval
 // will always be in whole multiples of the units.
 func (tvs TimeValSetGaussianInterval) SetVal(t *time.Time) {
-	f := rand.NormFloat64()
+	f := rand.NormFloat64() //nolint:gosec
 	if f <= 0 && tvs.forceGT0 {
 		if f == 0 {
 			f = 1.0
