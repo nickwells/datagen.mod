@@ -2,7 +2,7 @@ package datagen
 
 import "github.com/nickwells/check.mod/v2/check"
 
-// Passer
+// Passer is the interface describing the Passes methof
 type Passer interface {
 	Passes() bool
 }
@@ -12,8 +12,8 @@ type ValCk struct {
 	Passer
 }
 
-// NewValCk[T any] constructs a simple value check that can check whether or
-// not the supplied value passes the supplied check
+// NewValCk constructs a simple value check that can check whether or not the
+// supplied value passes the supplied check
 func NewValCk[T any](ck check.ValCk[T], val TypedVal[T]) *ValCk {
 	return &ValCk{
 		passer[T]{

@@ -1,6 +1,6 @@
 package datagen
 
-// Case[T any] represents a case in a switch
+// Case represents a case in a switch
 type Case[T any] struct {
 	vCk *ValCk
 	v   TypedGenerator[T]

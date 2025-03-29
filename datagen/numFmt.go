@@ -7,14 +7,13 @@ import (
 )
 
 // NegativeFormat encodes how negative values should be expressed.
-//
+type NegativeFormat int
+
 // NegFmtMinus means that a negative value should be shown with a leading
 // minus sign.
 //
 // NegFmtAccounts means that a negative value should be indicated by being
-// shown in brackets.
-type NegativeFormat int
-
+// shown in parentheses.
 const (
 	NegFmtMinus NegativeFormat = iota
 	NegFmtAccounts

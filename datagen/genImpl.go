@@ -17,8 +17,8 @@ func (dfltGenImpl[T]) MakeString(v T) string {
 func (dfltGenImpl[T]) SetVal(_ *T) {
 }
 
-// Gen[T any] records the information needed to generate a field. It
-// implements the TypedGenerator interface.
+// Gen records the information needed to generate a field. It implements the
+// TypedGenerator interface.
 type Gen[T any] struct {
 	sm        StringMaker[T]
 	valSetter ValSetter[T]
@@ -40,6 +40,7 @@ func (s Gen[T]) Value() T {
 	return s.value
 }
 
+// GenOptFunc represents a generic option function
 type GenOptFunc[T any] func(s *Gen[T]) error
 
 // GenSetStringMaker returns an option func that will set the function used

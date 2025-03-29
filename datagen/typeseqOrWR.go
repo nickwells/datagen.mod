@@ -4,6 +4,8 @@ package datagen
 // sequentially
 type seqOrRandType int
 
+// These constants represent the control over whether values are generated
+// sequentially or randomly.
 const (
 	Random seqOrRandType = iota
 	Sequential

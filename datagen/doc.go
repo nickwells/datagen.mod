@@ -1,4 +1,4 @@
 /*
-The datagen package provides tools for generating testdata
+Package datagen provides tools for generating testdata
 */
 package datagen

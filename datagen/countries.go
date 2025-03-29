@@ -1,4 +1,3 @@
-//nolint:mnd
 package datagen
 
 // Country records details about a country. These include the name, the ISO
@@ -33,6 +32,8 @@ func (c Country) Ccy() Currency {
 // Countries is a map giving the country details of the top 10 countries by
 // GDP (as of August 2022). The map keys are the ISO 3166 codes for the
 // countries.
+//
+//nolint:mnd
 var Countries = map[string]Country{
 	"US": {
 		name: "United States of America",

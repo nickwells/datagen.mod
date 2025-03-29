@@ -8,6 +8,8 @@ import (
 
 const dfltTimeGenLayout = "2006/01/02 15:04:05.000"
 
+// Time2Str records the details needed to convert from a time.Time to a
+// string.
 type Time2Str struct {
 	format string
 }
@@ -112,6 +114,8 @@ type TimeGen struct {
 	intervalF TimeGenIntervalF
 }
 
+// TimeGenOptFunc is the type of an option-setting function that will set a
+// value in a TimeGen
 type TimeGenOptFunc func(tg *TimeGen) error
 
 // TimeGenSetLayout returns a TimeGen Opt function which sets the layout (the

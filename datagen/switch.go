@@ -1,7 +1,7 @@
 package datagen
 
-// SwitchGen[T any] records the set of cases and the default value. The Value
-// used is that for the first case that passes. If none pass then the default
+// SwitchGen records the set of cases and the default value. The Value used
+// is that for the first case that passes. If none pass then the default
 // value is used.
 type SwitchGen[T any] struct {
 	cases   []*Case[T]
@@ -12,7 +12,9 @@ type SwitchGen[T any] struct {
 // parameter gives the default value. This will be used if none of the cases
 // pass. The supplied cases are evaluated in the order they are given and the
 // first one to pass is used to supply the generated value.
-func NewSwitchGen[T any](dfltVal TypedGenerator[T], cases ...*Case[T]) *SwitchGen[T] {
+func NewSwitchGen[T any](
+	dfltVal TypedGenerator[T], cases ...*Case[T],
+) *SwitchGen[T] {
 	return &SwitchGen[T]{
 		cases:   cases,
 		dfltVal: dfltVal,

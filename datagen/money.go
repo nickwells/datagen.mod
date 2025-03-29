@@ -7,15 +7,14 @@ import (
 
 // CcySymbolPlacement encodes where the currency symbol should appear when
 // displaying a currency amount.
-//
+type CcySymbolPlacement int
+
 // CCYSymBefore means that the symbol should come before the number: $1.23
 //
 // CcySymAfter means that the symbol comes after the number: 1.23$
 //
 // CcySymAtDecimal means that the symbol appears where the decimal place
 // would otherwise appear: 1$23
-type CcySymbolPlacement int
-
 const (
 	CcySymBefore CcySymbolPlacement = iota
 	CcySymAfter
