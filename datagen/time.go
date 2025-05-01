@@ -38,7 +38,7 @@ func (tvs TimeValSetConstInterval) SetVal(t *time.Time) {
 
 // TimeValSetGaussianInterval provides a SetVal method that will set the time
 // value to a random interval from its current value. The interval used is
-// some random value centered on the mean with a standard deviation of sd and
+// some random value centred on the mean with a standard deviation of sd and
 // then scaled by the units.
 type TimeValSetGaussianInterval struct {
 	// mean gives the mean value of the intervals to be used
