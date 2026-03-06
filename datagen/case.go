@@ -2,14 +2,14 @@ package datagen
 
 // Case represents a case in a switch
 type Case[T any] struct {
-	vCk *ValCk
-	v   TypedGenerator[T]
+	p Passer
+	v TypedGenerator[T]
 }
 
 // NewCase returns a new Case of type T
-func NewCase[T any](fc *ValCk, v TypedGenerator[T]) *Case[T] {
+func NewCase[T any](p Passer, v TypedGenerator[T]) *Case[T] {
 	return &Case[T]{
-		vCk: fc,
-		v:   v,
+		p: p,
+		v: v,
 	}
 }

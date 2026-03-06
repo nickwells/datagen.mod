@@ -25,8 +25,8 @@ type Gen[T any] struct {
 	value     T
 }
 
-// Generate returns the string form of the value
-func (s Gen[T]) Generate() string {
+// String returns the string form of the value
+func (s Gen[T]) String() string {
 	return s.sm.MakeString(s.value)
 }
 

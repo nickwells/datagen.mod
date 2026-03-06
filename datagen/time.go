@@ -146,7 +146,8 @@ func TimeGenSetIntervalF(f TimeGenIntervalF) TimeGenOptFunc {
 }
 
 // NewTimeGen creates a new TimeGen object. It will panic if any of the
-// option functions returns an error.
+// option functions returns an error. The initial time defaults to the
+// current time and the interval defaults to a constant one second.
 func NewTimeGen(opts ...TimeGenOptFunc) *TimeGen {
 	tg := &TimeGen{
 		layout:    dfltTimeGenLayout,
@@ -163,8 +164,8 @@ func NewTimeGen(opts ...TimeGenOptFunc) *TimeGen {
 	return tg
 }
 
-// Generate generates a formatted time string
-func (tg TimeGen) Generate() string {
+// String returns a formatted time string
+func (tg TimeGen) String() string {
 	return tg.value.Format(tg.layout)
 }
 

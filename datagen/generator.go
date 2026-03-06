@@ -1,8 +1,10 @@
 package datagen
 
+import "fmt"
+
 // Generator describes the methods that a field generator must provide.
 type Generator interface {
-	Generate() string
+	fmt.Stringer
 	Next()
 }
 

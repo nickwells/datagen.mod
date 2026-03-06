@@ -2,6 +2,8 @@ package datagen
 
 import (
 	"fmt"
+	"slices"
+	"strings"
 
 	"golang.org/x/exp/constraints"
 )
@@ -164,8 +166,6 @@ func UnsignedMkStrFunc[T constraints.Unsigned](nf NumFmt) func(T) string {
 			return nf.zeroVal
 		}
 
-		s := nf.prefix
-
 		var parts []string
 
 		if len(nf.sepCount) == 0 {
@@ -194,13 +194,16 @@ func UnsignedMkStrFunc[T constraints.Unsigned](nf NumFmt) func(T) string {
 			}
 		}
 
-		for i := len(parts) - 1; i >= 0; i-- {
-			s += parts[i]
+		var sb strings.Builder
+		sb.WriteString(nf.prefix)
+
+		for _, p := range slices.Backward(parts) {
+			sb.WriteString(p)
 		}
 
-		s += nf.suffix
+		sb.WriteString(nf.suffix)
 
-		return s
+		return sb.String()
 	}
 }
 

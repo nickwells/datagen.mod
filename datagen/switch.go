@@ -30,21 +30,22 @@ func (sg *SwitchGen[T]) Next() {
 	}
 }
 
-// Generate generates and returns the next value as a string
-func (sg SwitchGen[T]) Generate() string {
+// String returns the string form of the first case that passes or the
+// default value if none of them pass.
+func (sg SwitchGen[T]) String() string {
 	for _, c := range sg.cases {
-		if c.vCk.Passes() {
-			return c.v.Generate()
+		if c.p.Passes() {
+			return c.v.String()
 		}
 	}
 
-	return sg.dfltVal.Generate()
+	return sg.dfltVal.String()
 }
 
 // Value returns the next value
 func (sg SwitchGen[T]) Value() T {
 	for _, c := range sg.cases {
-		if c.vCk.Passes() {
+		if c.p.Passes() {
 			return c.v.Value()
 		}
 	}

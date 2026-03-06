@@ -49,8 +49,8 @@ func (sg *WStringGen) addWeightedString(ws WeightedString) {
 		})
 }
 
-// NewWStringGen creates a new WStringGen object and returns it. It will panic
-// if any of the weights is <= 0.
+// NewWStringGen creates a new WStringGen object and returns it. It will
+// panic if any of the weights is <= 0.
 //
 // The seqOrRand value can be set to Random to cause the values to be chosen
 // randomly from the supplied values. Or it can be set to Sequential and the
@@ -94,8 +94,8 @@ func (sg *WStringGen) Next() {
 	}
 }
 
-// Generate returns the next string
-func (sg WStringGen) Generate() string {
+// String returns the weighted string value
+func (sg WStringGen) String() string {
 	for _, ws := range sg.strings {
 		if sg.idx < ws.cumWeight {
 			return ws.Str
@@ -107,5 +107,5 @@ func (sg WStringGen) Generate() string {
 
 // Value returns the next string
 func (sg WStringGen) Value() string {
-	return sg.Generate()
+	return sg.String()
 }

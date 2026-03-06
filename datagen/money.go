@@ -134,7 +134,7 @@ func (ccy Currency) MoneyMkStrFunc(nf *NumFmt) func(int64) string {
 			v *= -1
 		}
 
-		var decimalPart string
+		decimalPart := ""
 		decimalPart, v = stripDecimals(v, decFactor,
 			ccy.decimals, nf.decimalSep)
 		nonDecimalPart := uFunc(uint64(v)) //nolint:gosec
