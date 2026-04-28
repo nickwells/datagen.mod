@@ -211,4 +211,20 @@ var Countries = map[string]Country{
 			decimals: 2,
 		},
 	},
+	"TR": {
+		name: "Republic of Türkiye",
+		code: "TR",
+		nf: NumFmt{
+			decimalSep:  ",",
+			digitGrpSep: ".",
+			sepCount:    []int{3},
+		},
+		ccy: Currency{
+			name:     "lira",
+			symbol:   "₺",
+			symPlace: CcySymBefore,
+			code:     "TRY",
+			decimals: 2,
+		},
+	},
 }
